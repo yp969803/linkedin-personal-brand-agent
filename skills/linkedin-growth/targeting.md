@@ -2,7 +2,7 @@
 
 ## Authors (read the headline/title live from the page)
 Comment on posts by people who fit "Who I want as inbound" in the profile. Founder/exec headlines are the priority: CEO, CTO, founder, co-founder, cofounder, founding engineer, founding team, or equivalent ("Chief Executive", "Chief Technology"). Also fine for comments: engineers and researchers on the profile's topics, open-source maintainers, and engineering or research leaders hiring for the profile's areas. These are signals, not a list of people. Skip generic recruiters, coaches and agency "growth" accounts.
-Also skip: people the profile lists as competitors or excluded, the user's own employer's staff if the profile says so, and anyone already in the log (`STATE seen`).
+Also skip: people the profile lists as competitors or excluded, the user's own employer's staff if the profile says so, and posts already acted on (`STATE seen '<post url>'`; a post counts once, whatever its URL form).
 
 ## Posts
 Engage only if all are true:

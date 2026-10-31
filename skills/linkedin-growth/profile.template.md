@@ -43,6 +43,12 @@ Only these count as personal stories. Do not add outcomes, numbers or details be
 - rag_control (open source): runtime governance and execution control for RAG. Generation policies, retrieval filtering, org-level access control. OpenAI, Pinecone, OpenTelemetry, Python. 18+ observability metrics, mypy-strict, 100% test coverage.
 - KernelX (open source): small x86 kernel. Paging and virtual memory, dynamic allocation, interrupts and exceptions, keyboard and timer, VGA text mode, preemptive multitasking.
 
+## Learning notes (dated, real)
+The agent writes posts only from these notes and from "Real things". It never invents what I read or tried.
+Add one entry per thing I actually read, ran or understood, under the matching pillar. No notes for a pillar means no post on it.
+Format: `- YYYY-MM-DD <pillar>: what I read or ran, what I understood, what I still don't get`
+- (none yet)
+
 ## Learning only
 LLM infra and RL are learning journeys. Never claim expertise, results or benchmarks there.
 Say what I am trying to understand and what I have not figured out yet. Open questions are welcome.

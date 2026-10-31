@@ -5,15 +5,15 @@ One skill (`linkedin-growth`), packaged as a Claude Code plugin and a Codex plug
 It wakes at random, then (within daily caps): writes 2 posts a week, replies to people who comment on your posts, comments on relevant posts from CEOs / CTOs / founders / founding engineers it finds in your feed, and sends them connection requests. Posts and comments use easy English, no politics, bait or jokes (see `skills/linkedin-growth/voice.md`).
 
 ## Warning
-LinkedIn has no API for this and its terms ban automation. Your account can be limited or banned. Caps (per day: 4 comments, 3 connects, 10 replies, 15 likes; per week: 15 connects, 2 posts; per wake-up: 2 comments, 2 connects), active hours 8-20, a 30 minute gap, and random timing lower the risk, they do not remove it. To stop everything, create the file `~/.linkedin-agent/PAUSE` (the agent also creates it if LinkedIn shows a warning or captcha). You are responsible for what it posts: start with `--dry-run`.
+LinkedIn has no API for this and its terms ban automation. Your account can be limited or banned. Caps (per day: 4 comments, 3 connects, 10 replies, 15 likes; per week: 15 connects, 2 posts; per wake-up: 2 comments, 2 connects), active hours 8-20, a 30 minute gap, and random timing lower the risk, they do not remove it. To stop everything, run `python3 scripts/state.py pause` or `touch ~/.linkedin-agent/PAUSE` (the agent also pauses itself if LinkedIn shows a warning or captcha); `unpause` resumes. Times use the machine's local clock, so set `TZ` if it is not your own. You are responsible for what it posts: start with `--dry-run`.
 
 ## Setup
 1. Install
    - Claude Code: `/plugin marketplace add <path or git url of this repo>` then `/plugin install linkedin-personal-brand-agent`
    - Codex: add this repo as a plugin (it has `.codex-plugin/plugin.json`).
 2. Open LinkedIn in the session's built-in browser tab and log in yourself. The agent never handles passwords.
-3. Run `/linkedin-growth` (Codex: `$linkedin-growth`). First run creates `~/.linkedin-agent/profile.md`: fill in topics, voice samples, ideal contacts.
-4. Try `/linkedin-growth run --dry-run` and read the output.
+3. Run `/linkedin-growth` (Codex: `$linkedin-growth`). First run copies `profile.template.md` to `~/.linkedin-agent/profile.md` (your own copy: edit that one). It holds who you are, topics, post pillars, ideal contacts, real stories, **dated learning notes** and voice. The agent writes posts only from the learning notes and real stories, so add entries as you read and build; with none, it skips posting. In Claude Code the skill may be namespaced: `/linkedin-personal-brand-agent:linkedin-growth`.
+4. Try `/linkedin-growth --dry-run` and read the output. A dry run ignores active hours and the random skip and saves nothing.
 5. Schedule random wake-ups inside the session, e.g. in Claude `/loop` or a session cron at odd minutes, 4 times per weekday, prompt `/linkedin-growth run`. The skill rolls a 50% chance to skip each wake-up, so timing stays irregular. Posting days and hours are picked randomly each week.
 
 Wake-ups only work while the session holding the LinkedIn tab is open.
