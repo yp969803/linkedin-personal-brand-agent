@@ -1,0 +1,7 @@
+{
+  "name": "linkedin-personal-brand-agent",
+  "version": "0.1.0",
+  "description": "Grows your LinkedIn presence: 2 plain-English posts a week, replies to your commenters, comments on and connects with founders and tech leaders from your feed.",
+  "author": { "name": "Yash Patel" },
+  "skills": "./skills/"
+}

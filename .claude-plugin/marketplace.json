@@ -1,0 +1,11 @@
+{
+  "name": "linkedin-personal-brand-agent",
+  "owner": { "name": "Yash Patel" },
+  "plugins": [
+    {
+      "name": "linkedin-personal-brand-agent",
+      "source": "./",
+      "description": "LinkedIn growth agent for founders and tech leaders."
+    }
+  ]
+}
