@@ -31,7 +31,7 @@ BANNED = [
     "delve", "game-changer", "game changer", "unlock", "leverage", "landscape", "journey",
     "in today's", "let that sink in", "here's the thing", "i'm thrilled", "excited to share",
     "great post", "thanks for sharing", "this resonates", "great insights", "absolutely agree",
-    "rapidly evolving", "dive deep", "dive in",
+    "rapidly evolving", "dive deep", "dive in", "the future is here",
 ]
 
 

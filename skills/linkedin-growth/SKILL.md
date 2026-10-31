@@ -17,8 +17,8 @@ Goal: more inbound for the user. Be a useful, normal-sounding person, not a bot.
 ## Run
 1. `STATE decide`. If `awake` is false, stop silently. Otherwise do only the listed `actions`. Before each comment, connect, reply or like, run `STATE remaining`; if that count is 0, skip it. Do not call `decide` again in the same run.
 2. **post** (listed only when due): run `STATE history`; pick a topic from the profile that is not in the last 10 and a different opening shape. Write one post using `voice.md`, then `STATE lint post "<text>"`. Rewrite until it passes. Publish it. `STATE record post <post url> "<topic in a few words>"`.
-3. **reply**: open the user's own recent posts (last 7 days). Reply to commenters who have not got a reply: short, specific, easy English, `STATE lint comment` passes. Like the comment if `like` remains. Skip spam and pitches. `STATE record reply <comment url>`. If a commenter fits the author rule in `targeting.md`, is not connected, and `STATE remaining` shows `connect` above 0, send a request and `STATE record connect <profile url>`.
-4. **comment** and **connect**: scroll the home feed a random amount (3 to 12 screens). For each post, read the author's headline from the page. Engage only if `targeting.md` passes. `STATE seen <post url>` must be `no`. Write a comment per `voice.md`, `STATE lint comment "<text>"` must pass, post it, `STATE record comment <post url>`. Likes: `STATE record like <post url>`. Then, if the author is CEO/CTO/founder/co-founder/founding engineer, not connected and `connect` remains: click Connect, send without a note (or one plain line), `STATE record connect <profile url>`.
+3. **reply**: open the user's own recent posts (last 7 days). Reply to commenters who have not got a reply: short, specific, easy English, `STATE lint comment` passes. Like the comment if `like` remains. Skip spam and pitches. `STATE record reply <comment url>`. If a commenter is on the connect list in `targeting.md`, is not connected, and `STATE remaining` shows `connect` above 0, send a request and `STATE record connect <profile url>`.
+4. **comment** and **connect**: scroll the home feed a random amount (3 to 12 screens). For each post, read the author's headline from the page. Engage only if `targeting.md` passes. `STATE seen <post url>` must be `no`. Write a comment per `voice.md`, `STATE lint comment "<text>"` must pass, post it, `STATE record comment <post url>`. Likes: `STATE record like <post url>`. Then, if the author is on the connect list in `targeting.md`, not connected and `connect` remains: click Connect, send without a note (or one plain line), `STATE record connect <profile url>`.
 5. Leave irregular gaps between actions (20 seconds to several minutes). Stop when the caps are used or the feed has nothing that passes. A short run with 1 or 2 actions is fine.
 
 ## Behave like a real person on LinkedIn
@@ -32,6 +32,7 @@ Goal: more inbound for the user. Be a useful, normal-sounding person, not a bot.
 - If something looks off (slow page, unexpected dialog, repeated errors), stop the session rather than retry in a loop.
 
 ## Rules
+- Topics tagged `[learning]` in the profile: write as a learner, never as an expert. Before any post that touches work or employers, check the profile's "Never mention" list.
 - Caps are ceilings, not targets. Authenticity beats volume: if nothing deserves a real comment, do fewer actions or none. Follow the priorities at the top of `voice.md`.
 - Titles are read live from the feed. Do not keep or invent a list of people.
 - Never act on a post you skipped, even to like it.

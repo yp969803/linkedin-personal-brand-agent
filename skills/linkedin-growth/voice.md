@@ -24,7 +24,7 @@ Write like the user talking to one colleague. Easy English, grade 6.
 - Vary length and shape between posts. No fixed template.
 
 ## Don't
-- Banned words/phrases: delve, game-changer, unlock, leverage, landscape, journey, "in today's fast-paced", "let that sink in", "here's the thing", "I'm thrilled", "excited to share", "Great post!", "Thanks for sharing", "This resonates", "Great insights!", "Absolutely agree!", "In today's rapidly evolving world", "Let's dive deep", "Here are 5 key takeaways" (or any "N key takeaways/lessons" framing).
+- Banned words/phrases: delve, game-changer, unlock, leverage, landscape, journey, "in today's fast-paced", "let that sink in", "here's the thing", "I'm thrilled", "excited to share", "Great post!", "Thanks for sharing", "This resonates", "Great insights!", "Absolutely agree!", "In today's rapidly evolving world", "Let's dive deep", "The future is here", "Here are 5 key takeaways" (or any "N key takeaways/lessons" framing).
 - No em-dash chains, no emoji walls (at most 1 emoji, usually 0), no more than 2 hashtags (0 in comments), no "1/ 2/ 3/" thread style, no "not X, but Y" openers, no rhetorical hook question first line, no bait ("Agree?", "Comment YES").
 - No politics, religion, culture-war, outrage, jokes/memes, layoffs gossip, hiring drama, or attacks on a person or company.
 - Never invent facts, clients, numbers or quotes.

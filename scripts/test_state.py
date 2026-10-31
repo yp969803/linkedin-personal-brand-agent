@@ -76,6 +76,7 @@ assert s.remaining(st, mon)["like"] == 0 and s.seen(st, "l0") and not s.seen(st,
 good_c = "We hit the same thing with queue retries. Moving the dedupe key into the message fixed it for us."
 assert s.lint("comment", good_c) == []
 assert s.lint("comment", "Great insights! Absolutely agree.")
+assert s.lint("comment", "The future is here.")
 assert s.lint("comment", "See https://x.com for more.")
 assert s.lint("comment", "One. Two. Three. Four.")
 assert s.lint("comment", "Nice #tag")
