@@ -80,9 +80,41 @@ assert s.lint("comment", "The future is here.")
 assert s.lint("comment", "See https://x.com for more.")
 assert s.lint("comment", "One. Two. Three. Four.")
 assert s.lint("comment", "Nice #tag")
-post = ("We moved our queue to a single writer last month. " * 14).strip()
-assert 600 <= len(post) <= 1200 and s.lint("post", post) == []
+post = ("We moved our queue to a single writer last month. " * 16).strip()
+assert 700 <= len(post) <= 1000 and s.lint("post", post) == []
 assert s.lint("post", "too short")
 assert s.lint("post", post + " Here are 5 key takeaways")
 assert s.lint("post", post + " \U0001F680\U0001F525")
+
+# repeats: posts
+st = fresh()
+p1 = ("I am reading how vLLM pages the KV cache into fixed blocks so GPU memory is not wasted on padding. "
+      "Each sequence gets a block table, and blocks are handed out as tokens arrive. "
+      "What I still cannot explain is how block size affects throughput on long prompts.")
+s.record(st, mon, "post", "u1", "AI inference: kv cache paging", p1)
+assert any("similar" in w for w in s.lint("post", p1, st))  # exact copy
+assert any("similar" in w for w in s.lint("post", p1.replace("fixed", "equal").replace("wasted", "lost"), st))
+assert any("opening" in w for w in s.lint("post", "I am reading how vLLM pages " + "Mamba keeps a state instead of a cache. " * 22, st))
+p2 = ("Policy gradients confuse me less after writing a tiny REINFORCE loop on CartPole by hand. "
+      "The baseline term was the part that clicked, since it only changes variance. "
+      "What I still cannot explain is why the same trick behaves differently with sparse rewards.")
+assert [w for w in s.lint("post", p2, st) if "similar" in w or "opening" in w or "closing" in w] == []
+assert any("closing" in w for w in s.lint("post", p2.rsplit(". ", 1)[0] + ". " + p1.rsplit(". ", 1)[1], st))
+
+# repeats: topics (compared after the colon, so shared pillar words do not clash)
+assert s.topic(st, "post", "AI inference: kv cache eviction")  # same subtopic area
+assert s.topic(st, "post", "AI inference: mamba state space models") == []
+assert s.topic(st, "post", "Reinforcement learning: kv cache paging")  # pillar differs, subtopic same
+assert s.topic(st, "comment", "anything: whatever") == []
+
+# repeats: comments and replies share one pool, window is the last 100
+st = fresh()
+c1 = "We saw the same with retries. Moving the dedupe key into the message fixed it for us."
+s.record(st, mon, "reply", "r1", "retries: dedupe key", c1)
+assert any("similar" in w for w in s.lint("comment", c1, st))
+assert s.topic(st, "comment", "queues: dedupe key") and s.topic(st, "post", "x: dedupe key") == []
+for i in range(100):
+    s.record(st, mon, "comment", f"c{i}", f"t{i}: angle{i}", f"Different text number {i} about topic{i} here")
+assert s.lint("comment", c1, st) == []  # fell out of the 100-entry window
+assert len([e for e in s.history(st) if e["type"] != "post"]) == 40
 print("ok")

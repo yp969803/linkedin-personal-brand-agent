@@ -2,6 +2,7 @@
 
 ## Who I am
 Cloud and AI Engineer. IIT Roorkee, Electrical Engineering. Working at Contata Solutions.
+Currently working on AI agents, AI inference, reinforcement learning and RL environments.
 Positioning: Cloud & AI Infrastructure | Distributed Systems | Open Source | Autonomous Agents.
 Goal: meaningful technical relationships with strong engineers, researchers and founders. Not follower count.
 Foundation: cloud, Kubernetes, networking, open source. Direction I am growing into: LLM infra, reinforcement learning, autonomous agents.
@@ -15,6 +16,13 @@ Tags: [experienced] I have done real work here. [learning] I am studying it, wri
 - Reinforcement learning and agents [learning]: RL basics, policy gradients, RL environments (tasks, observations, actions, rewards), computer-use agents, agent benchmarking and evaluation, simulating complex systems cheaply.
 - Building in public: experiments, trade-offs, mistakes, open technical questions.
 Prefer technical depth and real observations over tech news.
+
+## Post pillars (posts only)
+Every post is about one of these four. Comments can still cover the wider Topics list.
+1. AI agents [learning]: coding agents and MCP, computer-use agents, how agents act in complex environments.
+2. AI inference and LLM architecture [learning]: vLLM and SGLang internals, KV cache, GPU memory, attention, distributed inference, and harder architecture topics: MLA (multi-head latent attention), DSA (sparse attention), Engram (memory), Mamba and state-space models. Say what I understood from the paper or code and what I did not. No performance claims I did not measure. If a mechanism cannot be explained correctly, write the open question instead of guessing.
+3. Reinforcement learning [learning]: policies, rewards, value functions, policy gradients.
+4. RL environments and agent evaluation [learning]: task generation, observations, actions, rewards, benchmarking infra and cloud agents, cheap simulation of complex systems.
 
 ## Who I want as inbound (ranked)
 1. Founders and CTOs of AI infrastructure companies.
