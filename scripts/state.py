@@ -16,7 +16,7 @@ heredoc (<<'EOF'), never as shell arguments. URLs go in single quotes.
   state.py lint KIND            -> stdin = TEXT. "pass", or "fail: reason" lines (exit 1). Also rejects repeats.
                                    KIND = post|comment (comment also covers replies)
   state.py pause | unpause      -> create / remove the PAUSE kill switch
-  state.py home                 -> print the state directory (profile.md lives there)
+  state.py home                 -> print the state directory
 
 State lives in $LINKEDIN_AGENT_HOME (default ~/.linkedin-agent). Times are the machine's local time.
 """
@@ -76,8 +76,6 @@ def load():
         bad = p.with_suffix(".corrupt")
         p.rename(bad)
         sys.exit(f"state file was corrupt; moved to {bad}. Run again to start fresh.")
-    for k, v in fresh().items():
-        st.setdefault(k, v)
     return st
 
 
@@ -97,7 +95,7 @@ def locked():
 
 
 def ts(s):
-    return datetime.fromisoformat(s).replace(tzinfo=None)
+    return datetime.fromisoformat(s)
 
 
 def week_id(now):

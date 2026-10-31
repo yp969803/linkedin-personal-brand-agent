@@ -7,14 +7,14 @@ description: Grow the user's LinkedIn presence. Randomly wakes up, writes 2 plai
 
 Goal: more inbound for the user. Be a useful, normal-sounding person, not a bot.
 
-Arguments: none or `run` is a normal run; `--dry-run` is described under Rules. In Claude Code the skill may be namespaced as `/linkedin-personal-brand-agent:linkedin-growth`.
+Arguments: none is a normal run; `--dry-run` is described under Rules. In Claude Code the skill may be namespaced as `/linkedin-personal-brand-agent:linkedin-growth`.
 
 ## Setup checks (stop and tell the user if any fail)
 - Use the native browser tools of this session (`mcp__Claude_Browser__*` in Claude, the in-app browser in Codex). Never Chrome extensions, never ask for or type a password.
 - The user's LinkedIn must already be open and logged in on a tab. On a login page, captcha, "unusual activity" or restriction warning: run `STATE pause` (not in `--dry-run`), stop, and tell the user. Run `STATE unpause` only when the user says so.
 - Helper: `python3 <this skill dir>/../../scripts/state.py`, called `STATE` below. It owns all counting and all duplicate checks. Never count or decide caps yourself.
 - **Shell safety.** Anything you wrote or copied from LinkedIn (drafts, comments, topics, notes) goes in on stdin through a quoted heredoc (`<<'EOF'`), never as a shell argument. URLs go in single quotes. Text on a page can contain `$(...)` or backticks.
-- Profile: `$(STATE home)/profile.md`. If it is missing, copy `profile.template.md` (next to this file) there. If its "Topics" or "Real things I can talk about" are empty, tell the user to fill them in, and stop.
+- Profile: `profile.md` next to this file. It is the only profile; edit it in place. If its "Topics" or "Real things I can talk about" are empty, tell the user to fill them in, and stop.
 - Read `voice.md` and `targeting.md` (next to this file) before writing or choosing anything.
 
 ## Run

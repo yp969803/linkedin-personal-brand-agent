@@ -127,13 +127,7 @@ assert not (HOME / "state.json").exists()
 
 # --- state file problems --------------------------------------------------------
 h = Path(tempfile.mkdtemp())
-(h / "state.json").write_text('{"log": []}')
 os.environ["LINKEDIN_AGENT_HOME"] = str(h)
-assert s.load()["week"] == "" and s.load()["slots"] == []  # old file gets defaults
-tz = fresh()
-tz["log"] = [{"t": "2026-11-02T08:00:00+00:00", "type": "comment", "url": "a"}]
-tz["session_start"] = "2026-11-02T09:00:00"
-assert s.remaining(tz, mon)["comment"] == 2  # aware timestamps do not crash
 (h / "state.json").write_text('{"log": [')
 try:
     s.load()
